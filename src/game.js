@@ -39,8 +39,9 @@ class Game {
     this.soundOn = false;
     this.boostDiff = 0
 
+    // Use this variable for minting new Blockchain tokens
     this.fearTokens = 0
-
+    //
 	}
   
   start(){
@@ -56,9 +57,7 @@ class Game {
     this.playSounds();
 
     if (this.difficulty === 'hard') {
-
-      // should be 0.01
-      this.gameView.rollingSpeed = 0.1
+      this.gameView.rollingSpeed = 0.01
     } 
 
     this.update();
@@ -67,10 +66,16 @@ class Game {
   gameOver(){
     
     cancelAnimationFrame(this.update);
+
+    // 
+    // this.fearTokens  each do mint new coin
+
     document.getElementById('splash').style.visibility = 'visible';  
     document.getElementById('instructions_text').innerHTML = 'HEAR THE STORY AGAIN?';
     document.getElementById('title_text').innerHTML = `YOU SURVIVED ${Math.floor(this.gameView.gameTime.getElapsedTime())} SECONDS...`
-    document.getElementById('play_text').innerHTML = 'TRY AGAIN?';  
+    document.getElementById('play_text').innerHTML = 'TRY AGAIN?';
+    
+    
     document.getElementById('play_btn').addEventListener('click', () => {
       window.location.reload()
       this.clearGame();
@@ -80,6 +85,10 @@ class Game {
   gameWon(){
     
     cancelAnimationFrame(this.update);
+
+     // 
+    // this.fearTokens  each do mint new coin
+
     document.getElementById('splash').style.visibility = 'visible';  
     document.getElementById('title_text').innerHTML = 'YOU ESCAPED CODER RUN!!!';
     document.getElementById('instructions_text').innerHTML = 'HEAR THE STORY AGAIN?';
@@ -188,6 +197,13 @@ class Game {
           this.col.timesHit += 1
           this.notHitTime.start();
         } 
+
+      if (this.col.gotToken){
+        this.fearTokens += 1
+        this.col.gotToken = false
+        console.log(this.fearTokens)
+      }
+        
 
       // increases the frequency of bug realease
       if (this.difficulty === 'easy'){

@@ -66,21 +66,21 @@ class Enemy{
 
     if(theRandomNum<0.05 && theRandomNum > 0.01 && difficulty==='easy'){
       let lane10= Math.floor(Math.random()*2);
-      // this.items.addItem(lane10, this.currentGround);
-      // this.items.createItem();
-      this.items.addToken(lane12, this.currentGround);
-      this.items.createToken();
+      this.items.addItem(lane10, this.currentGround);
+      this.items.createItem();
+      // let lane12= Math.floor(Math.random()*2);
+      // this.items.addToken(lane12, this.currentGround);
+      // this.items.createToken();
 
     }else if(theRandomNum<0.03 && theRandomNum > 0.01 && difficulty==='hard'){
       let lane11= Math.floor(Math.random()*2);
       this.items.addItem(lane11, this.currentGround);
       this.items.createItem();
-    } else if(theRandomNum<0.01){
+    } else if(theRandomNum<0.1){
       let lane12= Math.floor(Math.random()*2);
       // token populated onto the screen
-
-      // this.items.addToken(lane12, this.currentGround);
-      // this.items.createToken();
+      this.items.addToken(lane12, this.currentGround);
+      this.items.createToken();
     }
     else{
       // this is the 15 secs before bugs start spawning

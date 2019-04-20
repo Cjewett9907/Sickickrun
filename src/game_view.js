@@ -12,13 +12,15 @@ class GameView {
     this.scene.fog = new t.FogExp2( 0x000000, .02 );
     this.heroGroundedY = -1.5; 
     this.skyGeometry = new t.CylinderGeometry( 35,35,250,32);
-		this.skyMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./matrix_green2.png') } )		
+    // this.skyMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./matrix_green2.png') } )		
+    this.skyMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./shadow_back.png') } )		
 		this.rollingSkyCylinder = new t.Mesh( this.skyGeometry, this.skyMaterial );
 		this.sides = 80;
 		this.tiers = 80;
 		this.worldRadius = 26;
 		this.sphereGeometry = new t.SphereGeometry( this.worldRadius, this.sides, this.tiers);	
-		this.sphereMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./matrix_green2.png') } )
+    // this.sphereMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./matrix_green2.png') } )
+    this.sphereMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./shadow_back.png') } )
     this.rollingGroundSphere = new t.Mesh( this.sphereGeometry, this.sphereMaterial );
     this.rollingSpeed = 0.008; 
 		this.spriteMap = new t.TextureLoader().load( "./run_2_red.png" );

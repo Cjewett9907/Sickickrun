@@ -6,6 +6,7 @@ class Collision {
 		this.bugsInPath = [];
         this.hasCollided = false;
         this.gotItem = false
+        this.gotToken = false
     }
         doBugLogic(gameView, enemy, effectObject, collisionObject, item, difficulty){
              
@@ -25,8 +26,18 @@ class Collision {
                         //Out of view, remove it
                         itemsToRemove.push(oneItem);
                     }else {
-                        if(itemPos.distanceTo(gameView.heroSprite.position)<=0.5){
+                        if (itemPos.distanceTo(gameView.heroSprite.position)<=0.5 && !oneItem.isToken && !oneItem.collided) {
+                            // && !oneItem.isToken)<=0.5
+                            oneItem.collided = true
+                           
+                            console.dir(oneItem)
                         collisionObject.gotItem = true
+                        }
+                        else if (itemPos.distanceTo(gameView.heroSprite.position)<=0.5 && oneItem.isToken && !oneItem.collided){
+                            console.log("GOT A GOLD COIN!!!!");
+                            oneItem.collided = true
+                            collisionObject.gotToken = true
+                            console.dir(oneItem);
                         }
                     }
                 }
