@@ -1,5 +1,5 @@
 {
-  "name": "Coder Run",
+  "name": "ProjectFear",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -16,7 +16,7 @@
     "url": ""
   },
   "keywords": [
-    "Coder Run",
+    "ProjectFear",
     "game"
   ],
   "author": "Craig",

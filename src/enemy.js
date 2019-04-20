@@ -62,17 +62,28 @@ class Enemy{
   addPathBug(ground, difficulty){
     this.currentGround = ground
     let options=[0,1,2];
+    let theRandomNum = Math.random()
 
-    if(Math.random()<0.05 && difficulty==='easy'){
+    if(theRandomNum<0.05 && theRandomNum > 0.01 && difficulty==='easy'){
       let lane10= Math.floor(Math.random()*2);
-      this.items.addItem(lane10, this.currentGround);
-      this.items.createItem();
-    }else if(Math.random()<0.03 && difficulty==='hard'){
+      // this.items.addItem(lane10, this.currentGround);
+      // this.items.createItem();
+      this.items.addToken(lane12, this.currentGround);
+      this.items.createToken();
+
+    }else if(theRandomNum<0.03 && theRandomNum > 0.01 && difficulty==='hard'){
       let lane11= Math.floor(Math.random()*2);
       this.items.addItem(lane11, this.currentGround);
       this.items.createItem();
+    } else if(theRandomNum<0.01){
+      let lane12= Math.floor(Math.random()*2);
+      // token populated onto the screen
+
+      // this.items.addToken(lane12, this.currentGround);
+      // this.items.createToken();
     }
     else{
+      // this is the 15 secs before bugs start spawning
       if(this.spawnTimer > 15){
       this.addBug(true, 0, false, ground, this.bugPool);
       options.splice(0,1);
@@ -83,14 +94,14 @@ class Enemy{
       } 
     
 
-      if(Math.random()>0.2){
+      if(theRandomNum>0.2){
         // Add difficulty here!
         let lane1= Math.floor(Math.random()*3);
         this.addBug(true, lane1, false, ground, this.bugPool);
         let lane2= Math.floor(Math.random()*3);
         this.addBug(true, lane2, false, ground, this.bugPool);
       }
-      if(Math.random()>0.5){
+      if(theRandomNum>0.5){
         // Add difficulty here!
         let lane4= Math.floor(Math.random()*3);
         this.addBug(true, lane4, false, ground, this.bugPool);
@@ -106,6 +117,12 @@ class Enemy{
   createBug(){
     let midPointVector= new t.Vector3();
     let vertexVector= new t.Vector3();
+
+
+    // add bug randomization here
+
+    //
+
     this.bugMap = new t.TextureLoader().load( "./red_spider.png");
     this.spriteMaterial = new t.SpriteMaterial( { map: this.bugMap, color: 0xffffff } );
     let bug = new t.Sprite( this.spriteMaterial );

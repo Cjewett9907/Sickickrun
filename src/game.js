@@ -39,6 +39,8 @@ class Game {
     this.soundOn = false;
     this.boostDiff = 0
 
+    this.fearTokens = 0
+
 	}
   
   start(){
@@ -54,7 +56,9 @@ class Game {
     this.playSounds();
 
     if (this.difficulty === 'hard') {
-      this.gameView.rollingSpeed = 0.01
+
+      // should be 0.01
+      this.gameView.rollingSpeed = 0.1
     } 
 
     this.update();
