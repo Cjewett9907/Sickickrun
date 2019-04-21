@@ -142,7 +142,7 @@ class Game {
 	update(){
     
 
-    document.getElementById('score').innerHTML = `${this.score} PTS`;
+    document.getElementById('score').innerHTML = `${this.fearTokens} COINS`;
     this.gameView.heroSprite.position.y += this.jumpForce;
     this.jumpForce-=this.gravity; 
 
