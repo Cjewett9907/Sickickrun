@@ -124,7 +124,7 @@ class Enemy{
     //
 
     // this.bugMap = new t.TextureLoader().load( "./red_spider.png");
-    this.bugMap = new t.TextureLoader().load( "./r_skull.jpg");
+    this.bugMap = new t.TextureLoader().load( "./eye.png");
     this.spriteMaterial = new t.SpriteMaterial( { map: this.bugMap, color: 0xffffff } );
     let bug = new t.Sprite( this.spriteMaterial );
     bug.scale.set(1, 1, 1)
