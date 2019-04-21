@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { firebase, database } from './firebase/firebase';
+import { firebase, database } from '../firebase/firebase';
  
 class Signup extends Component {
   state = {
@@ -27,8 +27,10 @@ class Signup extends Component {
       })
     }).then(() => {
       console.log('success');
+      this.props.history.push("/");
     }).catch((err) => {
       console.log(err.message, 'failed');
+      // this.props.history.push("/");
     })
   }
   render() {
@@ -54,7 +56,7 @@ class Signup extends Component {
           </div>
           <div className="input-field">
             <button className="btn blue lighten-1 z-depth-0">Sign Up</button>
-            <button className="btn blue lighten-1 z-depth-0" onClick={() => this.props.changePage('login')}>Login</button>
+            <button className="btn blue lighten-1 z-depth-0" onClick={() => this.props.history.push('/')}>Login</button>
           </div>
         </form>
 

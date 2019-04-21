@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { firebase } from "./firebase/firebase";
+import { firebase } from "../firebase/firebase";
+
 
 class Login extends Component {
   state = {
@@ -19,9 +20,11 @@ class Login extends Component {
     return firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((() => {
         console.log('success');
+        this.props.history.push("/dashboard");
       }))
       .catch(() => {
         console.log('failed');
+        this.props.history.push("/");
       });
   };
 
@@ -48,7 +51,7 @@ class Login extends Component {
             </div>
             <div className="input-field">
               <button className="btn blue lighten-1 z-depth-0" onClick={this.startLogin}>Login</button>
-              <button className="btn blue lighten-1 z-depth-0" onClick={() => this.props.changePage('signup')}>SignUp</button>
+              <button className="btn blue lighten-1 z-depth-0" onClick={() => this.props.history.push('/signup')}>SignUp</button>
             </div>
           </form>
         </div>
