@@ -5,12 +5,14 @@ const GameView = require('./game_view')
 class Effects {
     constructor(){
         this.particleCount = 80
+        this.goldParticleCount = 50
         this.particleGeometry = new t.Geometry();
-        this.coffeeMaterial = new t.ParticleBasicMaterial({color: 0xFCF302, size: 0.05})
+        this.goldParticleGeometry = new t.Geometry();
+        this.goldMaterial = new t.ParticleBasicMaterial({color: 0xFCF302, size: 0.05})
         this.partMaterial = new t.ParticleBasicMaterial({color: 0xff3200, size: 0.05});
         this.particles = new t.Points( this.particleGeometry, this.partMaterial );
-        this.coffeeParticles = new t.Points( this.particleGeometry, this.coffeeMaterial );
-        this.cafPower = 1.5;
+        this.goldParticles = new t.Points( this.particleGeometry, this.goldMaterial );
+        this.goldPower = 1.5;
         this.hitPower = 1.1;
     }
     doHitLogic(gameView){
@@ -25,6 +27,7 @@ class Effects {
 
         if(this.hitPower>1.005){
             this.hitPower-=0.007;
+            console.log("hit power is ", this.hitPower)
         }else{
             this.particles.visible=false;
         }
@@ -48,40 +51,41 @@ class Effects {
         this.particles.visible=true;
     }
     
-    // doCoffeeLogic(gameView){
-    //     if(!this.coffeeParticles.visible)return;
-    //     for (let i = 0; i < this.particleCount; i ++ ) {
-    //         let vertex = new t.Vector3();
-    //         this.particleGeometry.vertices.push( vertex );
-    //     }
-    //     for (var i = 0; i < this.particleCount; i ++ ) {
-    //         this.particleGeometry.vertices[i].multiplyScalar(this.cafPower);
-    //     }
+    doGoldLogic(gameView){
+        if(!this.goldParticles.visible)return;
+        for (let i = 0; i < this.goldParticleCount; i ++ ) {
+            let gVertex = new t.Vector3();
+            this.goldParticleGeometry.vertices.push( gVertex );
+        }
+        for (var i = 0; i < this.goldParticleCount; i ++ ) {
+            this.goldParticleGeometry.vertices[i].multiplyScalar(this.goldPower);
+        }
 
-    //     if(this.cafPower>1.005){
-    //         this.cafPower-=0.007;
-    //     }else{
-    //         this.coffeeParticles.visible=false;
-    //     }
-    //     this.particleGeometry.verticesNeedUpdate = true;
-    //     gameView.scene.add( this.coffeeParticles );
-    //     // this.coffeeParticles.visible=false;        
-    // }
+        if(this.goldPower>1.005){
+            this.goldPower-=0.01;
+            console.log(this.goldPower)
+        }else{
+            this.goldParticles.visible=false;
+        }
+        this.goldParticleGeometry.verticesNeedUpdate = true;
+        gameView.scene.add( this.goldParticles );
+        // this.goldParticles.visible=false;        
+    }
 
-    // addCoffee(gameView){
-    //     this.coffeeParticles.position.y=gameView.heroSprite.position.y;
-    //     this.coffeeParticles.position.z=16;
-    //     this.coffeeParticles.position.x = gameView.heroSprite.position.x;
-    //     for (var i = 0; i < this.particleCount; i ++ ) {
-    //         var vertex = new t.Vector3();
-    //         vertex.x = -0.2+Math.random() * 0.4;
-    //         vertex.y = -0.2+Math.random() * 0.4 ;
-    //         vertex.z = -0.2+Math.random() * 0.4;
-    //         this.particleGeometry.vertices[i]=vertex;
-    //     }
-    //     this.cafPower=1.1;
-    //     this.coffeeParticles.visible=true;
-    // }
+    addGold(gameView){
+        this.goldParticles.position.y=gameView.heroSprite.position.y;
+        this.goldParticles.position.z=16;
+        this.goldParticles.position.x = gameView.heroSprite.position.x;
+        for (var i = 0; i < this.goldParticleCount; i ++ ) {
+            var gVertex = new t.Vector3();
+            gVertex.x = -0.2+Math.random() * 0.4;
+            gVertex.y = -0.2+Math.random() * 0.4 ;
+            gVertex.z = -0.2+Math.random() * 0.4;
+            this.goldParticleGeometry.vertices[i]=gVertex;
+        }
+        this.goldPower=1.1;
+        this.goldParticles.visible=true;
+    }
 
 
 

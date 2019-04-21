@@ -39,7 +39,7 @@ class Game {
     this.col.mercy = false;
     this.boostable = false;
     this.canDoubleJump = true;
-    this.soundOn = false;
+    this.soundOn = true;
     this.boostDiff = 0
     this.flickerDirection = 1
     
@@ -124,7 +124,7 @@ class Game {
   }
 
   handleMusic() {
-    this.music = new Sound('./spider_dance.mp3');
+    this.music = new Sound('./S_infect.mp3');
     // this.soundOn = true; 
     this.music.start(this);
 
@@ -308,6 +308,7 @@ class Game {
     }
     this.col.doBugLogic(this.gameView, this.enemy, this.effects, this.col, this.item, this.difficulty);
     this.effects.doHitLogic(this.gameView);
+    this.effects.doGoldLogic(this.gameView);
     
     this.gameView.rollingGroundSphere.rotation.x += this.gameView.rollingSpeed;
     this.gameView.rollingSkyCylinder.rotation.x += this.gameView.rollingSpeed;

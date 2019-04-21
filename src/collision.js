@@ -38,6 +38,8 @@ class Collision {
                             oneItem.collided = true
                             collisionObject.gotToken = true
                             console.dir(oneItem);
+                            effectObject.addGold(gameView);
+                            effectObject.doGoldLogic(gameView);
                         }
                     }
                 }
