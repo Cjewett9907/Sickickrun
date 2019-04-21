@@ -17,11 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById('title_text').innerHTML = 'PROJECT FEAR'
   document.getElementById('instructions_text').addEventListener('click', () => {
     instructions_text.innerHTML = 
-        `After studying exessively for exams, Max is trapped in the nightmare world of Coder Run <br> <br>
-         Help Max escape the gauntlet of buggy code!`})
+        `Fear infests your mind. The only way to conquer darkness is to run. Run straight through it. <br> On your journey, you will find your true self...the strength to withstand your monsters.`})
   
   document.getElementById('keys').addEventListener('click', () => {
-    keys.innerHTML = '<br> Use arrow keys or WASD to move, <br> pressing up twice performs a double jump. <br>  Bugs make you drowsy, Coffee wakes you up!'
+    keys.innerHTML = 'Use arrow keys or WASD on keyboard to avoid monsters. <br> Collect masks to restore your power. Score coins to earn rewards.'
   })
 
   document.getElementById('play_btn').addEventListener('click', () => {   
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   document.getElementById('account').addEventListener('click', () => {   
-    window.location.assign("https://www.google.com")
+    window.location.assign("https://sickickrun.netlify.com/")
     
   })
 
