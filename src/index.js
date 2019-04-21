@@ -57,4 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
    difficulty = 'hard' 
   })
 
+  document.getElementById('account').addEventListener('click', () => {   
+    window.location.assign("https://www.google.com")
+    
+  })
+
 });
