@@ -7,17 +7,16 @@ const Effects = require('./special_effects');
 const Item = require('./items');
 const Sound = require('./sounds');
 
-//
-// const cryptoWallet = require('./crypto_wallet')
+const cryptoWallet = require('./crypto_wallet');
 
 class Game {
 
 	constructor(difficulty){
 
     this.difficulty = difficulty
-		this.jumpForce = 0 
-		this.gravity = 0.012; 
-		this.score = 0;    
+		this.jumpForce = 0
+		this.gravity = 0.012;
+		this.score = 0;
 		this.notHitTime = new t.Clock();
 		this.sphericalHelper = new t.Spherical();
 		this.pathAngleValues=[1.52,1.57,1.62];
@@ -42,15 +41,17 @@ class Game {
     this.soundOn = true;
     this.boostDiff = 0
     this.flickerDirection = 1
-    
+
+
+		this.wallet = new cryptoWallet;
 
     // Use this variable for minting new Blockchain tokens
     this.fearTokens = 0
     //
 	}
-  
+
   start(){
-    
+
     this.finished = false
     document.addEventListener('keydown', (event) => keyboardHandler.onKeyDown(event, this.keypress), false);
     document.addEventListener('keyup', keyboardHandler.onKeyUp, false);
@@ -63,8 +64,8 @@ class Game {
 
     if (this.difficulty === 'hard') {
       this.gameView.rollingSpeed = 0.01
-    } 
-    // setInterval(function(){ 
+    }
+    // setInterval(function(){
     //   this.flickerTicks = (flickerTicks + 1 % 3)
     //   if (flickerTicks < 1){ flickerDirection *= -1}
     //   this.gameView.scene.fog.density = this.gameView.scene.fog.density + (this.gameView.scene.fog.density * 0.5 * flickerDirection)
@@ -75,42 +76,47 @@ class Game {
   }
 
   gameOver(){
-    
+
     cancelAnimationFrame(this.update);
 
-    // 
+    //
     // this.fearTokens  each do mint new coin
+		this.fearTokens += 1;
+		console.log("fear tokens collected: " + this.fearTokens);
+		this.wallet.send().catch((err) => console.log(err));
 
-    document.getElementById('splash').style.visibility = 'visible';  
+
+    document.getElementById('splash').style.visibility = 'visible';
     document.getElementById('instructions_text').innerHTML = 'HEAR THE STORY AGAIN?';
     document.getElementById('title_text').innerHTML = `YOU SURVIVED ${Math.floor(this.gameView.gameTime.getElapsedTime())} SECONDS...`
     document.getElementById('play_text').innerHTML = 'TRY AGAIN?';
-    
-    
+
+
     document.getElementById('play_btn').addEventListener('click', () => {
       window.location.reload()
       this.clearGame();
-      
+
     })
   }
   gameWon(){
-    
+
     cancelAnimationFrame(this.update);
 
-     // 
-    // this.fearTokens  each do mint new coin
+		this.fearTokens += 10;
+		console.log("fear tokens collected: " + this.fearTokens);
+		this.wallet.send().catch((err) => console.log(err));
 
-    document.getElementById('splash').style.visibility = 'visible';  
+    document.getElementById('splash').style.visibility = 'visible';
     document.getElementById('title_text').innerHTML = 'YOU ESCAPE SickickRun!!!';
     document.getElementById('instructions_text').innerHTML = 'HEAR THE STORY AGAIN?';
-    document.getElementById('play_text').innerHTML = 'Play Again?';  
+    document.getElementById('play_text').innerHTML = 'Play Again?';
     document.getElementById('play_btn').addEventListener('click', () => {
     window.location.reload()
     this.clearGame();
-      
+
     })
   }
-  
+
   isMusicPlaying() {
     if (this.soundOn) {
       return 'on';
@@ -125,7 +131,7 @@ class Game {
 
   handleMusic() {
     this.music = new Sound('./S_infect.mp3');
-    // this.soundOn = true; 
+    // this.soundOn = true;
     this.music.start(this);
 
     document.getElementById('Main-Game').addEventListener('click', () => {
@@ -140,19 +146,19 @@ class Game {
   }
 
 	update(){
-    
+
 
     document.getElementById('score').innerHTML = `${this.fearTokens} COINS`;
     this.gameView.heroSprite.position.y += this.jumpForce;
-    this.jumpForce-=this.gravity; 
+    this.jumpForce-=this.gravity;
 
     if((this.gameView.heroSprite.position.y - 0.3) <= (this.gameView.heroGroundedY )){
       this.jumping=false;
       this.canDoubleJump = true;
-      this.jumpForce=(Math.random()*0.005)+0.012; 
-    } 
+      this.jumpForce=(Math.random()*0.005)+0.012;
+    }
 
-        if ( this.keypress.jump && !this.jumping ) {//up, jump  
+        if ( this.keypress.jump && !this.jumping ) {//up, jump
           this.keypress.jump = false
           this.jumpForce = 0.2;
           this.jumping=true;
@@ -173,7 +179,7 @@ class Game {
             this.keypress.right = false;
 				  }else{
             this.validMove=false;
-            this.keypress.right = false;	
+            this.keypress.right = false;
           }
         }
 
@@ -185,17 +191,17 @@ class Game {
             this.gameView.currentLane=this.gameView.middleLane;
             this.keypress.left = false;
           }else{
-            this.validMove=false;	
+            this.validMove=false;
             this.keypress.left = false;
           }
         }
-      
+
       this.keypress.jump = false
       this.keypress.right = false
       this.keypress.left = false
       this.keypress.attack = false
 
-    this.delta = this.gameView.clock.getDelta(); 
+    this.delta = this.gameView.clock.getDelta();
     this.gameView.annie.update(1000 * this.delta);
 
       if (this.col.hasCollided){
@@ -209,14 +215,14 @@ class Game {
           }
           this.col.timesHit += 1
           this.notHitTime.start();
-        } 
+        }
 
       if (this.col.gotToken){
         this.fearTokens += 1
         this.col.gotToken = false
         console.log(this.fearTokens)
       }
-        
+
 
       // increases the frequency of bug realease
       if (this.difficulty === 'easy'){
@@ -236,7 +242,7 @@ class Game {
           this.finished = true;
           this.gameWon();
         }
-        
+
       } else if (this.difficulty === 'hard'){
         if (this.gameView.gameTime.getElapsedTime() > 30){
           this.bugReleaseInterval=0.40;
@@ -253,7 +259,7 @@ class Game {
         }
       }
 
-      // setInterval(function(){ 
+      // setInterval(function(){
       //   this.flickerTicks = (flickerTicks + 1 % 3)
       //   if (flickerTicks < 1){ flickerDirection *= -1}
       //   this.gameView.scene.fog.density = this.gameView.scene.fog.density + (this.gameView.scene.fog.density * 0.5 * flickerDirection)
@@ -290,7 +296,7 @@ class Game {
         this.finished = true
         this.gameOver();
       }
-    
+
     if(this.gameView.clock.getElapsedTime()>this.bugReleaseInterval && this.gameView.gameTime.getElapsedTime() > 3){
       this.gameView.clock.start();
     	this.enemy.addPathBug(this.gameView.rollingGroundSphere, this.difficulty);
@@ -309,7 +315,7 @@ class Game {
     this.col.doBugLogic(this.gameView, this.enemy, this.effects, this.col, this.item, this.difficulty);
     this.effects.doHitLogic(this.gameView);
     this.effects.doGoldLogic(this.gameView);
-    
+
     this.gameView.rollingGroundSphere.rotation.x += this.gameView.rollingSpeed;
     this.gameView.rollingSkyCylinder.rotation.x += this.gameView.rollingSpeed;
 
@@ -321,15 +327,12 @@ class Game {
         requestAnimationFrame(this.update.bind(this));
       }
   }
-  
+
     clearGame() {
       clearInterval(this.start());
       this.music.stop();
       this.soundOn = false;
     }
 };
-    
+
     module.exports = Game;
-
-
-    
