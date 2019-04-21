@@ -33,7 +33,7 @@ class Item {
         }
 
         createItem(){
-            this.itemMap = new t.TextureLoader().load( "./coffee.png");
+            this.itemMap = new t.TextureLoader().load( "./health.png");
             this.spriteMaterial = new t.SpriteMaterial( { map: this.itemMap, color: 0xffffff } );
             let item = new t.Sprite( this.spriteMaterial );
             item.scale.set(1, 1, 1)
