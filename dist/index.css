@@ -65,10 +65,11 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
   border: 2px solid black;
   border-radius: 10px;
+  
 }
 
 #instructions_text:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 
 #splash h2 { 
@@ -76,7 +77,7 @@ body {
   /* font-family: 'Griffy', cursive; */
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   color:#FF0000;
   text-align: center;
 }
@@ -87,7 +88,7 @@ body {
   /* font-family: 'Griffy', cursive; */
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   background-color: rgba(255, 255, 255, 0.2);
   display: flex;
   padding: 1%;
@@ -101,7 +102,7 @@ body {
 }
 
 #play_btn:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 
 
@@ -126,7 +127,7 @@ body {
   /* font-family: 'Griffy', cursive; */
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   color:#FF0000;
   padding-left: 25%;
   padding: 1%;
@@ -146,7 +147,7 @@ body {
   /* font-family: 'Griffy', cursive; */
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   color:#FF0000;
   padding-left: 25%;
   padding: 1%;
@@ -166,7 +167,7 @@ body {
   /* font-family: 'Griffy', cursive; */
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   color:#FF0000;
   padding-left: 25%;
   padding: 1%;
@@ -185,7 +186,7 @@ body {
   position: relative;
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
-  font-size: 30px;
+  font-size: 28px;
   color:#FF0000;
   padding-left: 25%;
   padding: 1%;
@@ -200,17 +201,17 @@ body {
 }
 
 #keys:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 #diff:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 #account:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 
 .diff-settings:hover{
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(230, 11, 11, 0.4);
 }
 
 

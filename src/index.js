@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
    }, 3000);
 
   document.getElementById('play_text').innerHTML = 'PLAY'
-  document.getElementById('title_text').innerHTML = 'PROJECT FEAR'
+  document.getElementById('title_text').innerHTML = 'SickickRun'
   document.getElementById('instructions_text').addEventListener('click', () => {
     instructions_text.innerHTML = 
         `Fear infests your mind. The only way to conquer darkness is to run. Run straight through it. <br> On your journey, you will find your true self...the strength to withstand your monsters.`})

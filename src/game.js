@@ -101,7 +101,7 @@ class Game {
     // this.fearTokens  each do mint new coin
 
     document.getElementById('splash').style.visibility = 'visible';  
-    document.getElementById('title_text').innerHTML = 'YOU ESCAPED PROJECT FEAR!!!';
+    document.getElementById('title_text').innerHTML = 'YOU ESCAPE SickickRun!!!';
     document.getElementById('instructions_text').innerHTML = 'HEAR THE STORY AGAIN?';
     document.getElementById('play_text').innerHTML = 'Play Again?';  
     document.getElementById('play_btn').addEventListener('click', () => {
