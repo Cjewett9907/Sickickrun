@@ -7,6 +7,9 @@ const Effects = require('./special_effects');
 const Item = require('./items');
 const Sound = require('./sounds');
 
+//
+// const cryptoWallet = require('./crypto_wallet')
+
 class Game {
 
 	constructor(difficulty){
@@ -38,6 +41,8 @@ class Game {
     this.canDoubleJump = true;
     this.soundOn = false;
     this.boostDiff = 0
+    this.flickerDirection = 1
+    
 
     // Use this variable for minting new Blockchain tokens
     this.fearTokens = 0
@@ -59,6 +64,12 @@ class Game {
     if (this.difficulty === 'hard') {
       this.gameView.rollingSpeed = 0.01
     } 
+    // setInterval(function(){ 
+    //   this.flickerTicks = (flickerTicks + 1 % 3)
+    //   if (flickerTicks < 1){ flickerDirection *= -1}
+    //   this.gameView.scene.fog.density = this.gameView.scene.fog.density + (this.gameView.scene.fog.density * 0.5 * flickerDirection)
+    //   console.log(imageIdx)
+    //  }, 10);
 
     this.update();
   }
@@ -129,6 +140,8 @@ class Game {
   }
 
 	update(){
+    
+
     document.getElementById('score').innerHTML = `${this.score} PTS`;
     this.gameView.heroSprite.position.y += this.jumpForce;
     this.jumpForce-=this.gravity; 
@@ -239,6 +252,13 @@ class Game {
           this.gameWon();
         }
       }
+
+      // setInterval(function(){ 
+      //   this.flickerTicks = (flickerTicks + 1 % 3)
+      //   if (flickerTicks < 1){ flickerDirection *= -1}
+      //   this.gameView.scene.fog.density = this.gameView.scene.fog.density + (this.gameView.scene.fog.density * 0.5 * flickerDirection)
+      //   console.log(imageIdx)
+      //  }, 10);
 
       if (this.col.gotItem && !(this.gameView.scene.fog.density < 0.011)) {
         this.col.gotItem = false

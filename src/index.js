@@ -4,14 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameEl = document.getElementsByClassName("Main-Game");
   let difficulty = 'easy'
   let game;
-  let imageSelection = ["url('./sickick1.jpg')", "url('./matrix_green2.png')", "url('./red_spider.png')" ]
+  let imageSelection = ["url('./sickick3.jpg')", "url('./sickick4.jpg')", "url('./sickick1.jpg')", "url('./sickick22.jpg')"]
   let imageIdx = 1
 
   setInterval(function(){ 
     document.getElementById('splash').style.backgroundImage =imageSelection[imageIdx];
     imageIdx = (imageIdx + 1) % imageSelection.length;
     console.log(imageIdx)
-   }, 6000);
+   }, 3000);
 
   document.getElementById('play_text').innerHTML = 'PLAY'
   document.getElementById('title_text').innerHTML = 'PROJECT FEAR'
