@@ -23,10 +23,14 @@ class GameView {
     this.sphereMaterial = new t.MeshBasicMaterial ( { map: new t.TextureLoader().load('./shadow_back.png') } )
     this.rollingGroundSphere = new t.Mesh( this.sphereGeometry, this.sphereMaterial );
     this.rollingSpeed = 0.008; 
-		this.spriteMap = new t.TextureLoader().load( "./run_2_red.png" );
+
+    // animated runner
+		this.spriteMap = new t.TextureLoader().load( "./SickickRunner.png" );
 	  this.spriteMaterial = new t.SpriteMaterial( { map: this.spriteMap, color: 0xffffff } );
-    this.annie = new TextureAnimator( this.spriteMap, 2, 1, 2, 160 );
-  	this.heroSprite = new t.Sprite( this.spriteMaterial );	
+    this.annie = new TextureAnimator( this.spriteMap, 4, 1, 4, 80 );
+    this.heroSprite = new t.Sprite( this.spriteMaterial );	
+    
+
     this.heroGroundedY = -1.5; 
     this.sphericalHelper = new t.Spherical();
     this.pathAngleValues=[1.52,1.57,1.62];

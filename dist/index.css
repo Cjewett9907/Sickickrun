@@ -13,7 +13,7 @@ body {
 
 #splash {
   background-color: white;
-  background-image: url('./sleeping_desk.jpg');
+  background-image: url('./sickick1.jpg');
   background-size: cover;
   position: absolute;
   z-index: 150;
@@ -26,7 +26,10 @@ body {
 }
 
 .stats{
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
+
   position: absolute;
   color: white;
   margin: 20px;
@@ -43,15 +46,18 @@ body {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 30px;
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 70px;
   color: rgb(12, 12, 12);
   
 }
 #instructions_text{
-  font-family: 'Orbitron', sans-serif;
-  
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */ 
+  font-family: 'Denk One', sans-serif;
   position: relative;
   margin: 0 auto;
   padding: 1%;
@@ -66,7 +72,9 @@ body {
 }
 
 #splash h2 { 
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 30px;
   color: #136103;
@@ -75,7 +83,9 @@ body {
 
 #play_btn {
   position: relative;
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 30px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -112,7 +122,9 @@ body {
 
 #keys{
   position: relative;
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif;*/
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 30px;
   color: #136103;
@@ -130,7 +142,9 @@ body {
 
 #diff{
   position: relative;
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 30px;
   color: #136103;
@@ -148,7 +162,9 @@ body {
 
 .diff-settings{
   position: relative;
-  font-family: 'Orbitron', sans-serif;
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Griffy', cursive; */
+  font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 30px;
   color: #136103;

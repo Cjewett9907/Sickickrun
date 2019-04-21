@@ -4,8 +4,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameEl = document.getElementsByClassName("Main-Game");
   let difficulty = 'easy'
   let game;
+  let imageSelection = ["url('./sickick1.jpg')", "url('./matrix_green2.png')", "url('./red_spider.png')" ]
+  let imageIdx = 1
+
+  setInterval(function(){ 
+    document.getElementById('splash').style.backgroundImage =imageSelection[imageIdx];
+    imageIdx = (imageIdx + 1) % imageSelection.length;
+    console.log(imageIdx)
+   }, 6000);
+
   document.getElementById('play_text').innerHTML = 'PLAY'
-  document.getElementById('title_text').innerHTML = 'CODER RUN'
+  document.getElementById('title_text').innerHTML = 'PROJECT FEAR'
   document.getElementById('instructions_text').addEventListener('click', () => {
     instructions_text.innerHTML = 
         `After studying exessively for exams, Max is trapped in the nightmare world of Coder Run <br> <br>
