@@ -16,8 +16,19 @@ class Login extends Component {
 
   startLogin = (e) => {
     e.preventDefault();
-    console.log('Logging in', this.state);
-    return firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then((() => {
+        console.log('success');
+        this.props.history.push("/dashboard");
+      }))
+      .catch((err) => {
+        console.log('failed', err);
+        this.props.history.push("/");
+      });
+  };
+  demoLogin = (e) => {
+    e.preventDefault();
+    firebase.auth().signInWithEmailAndPassword("admin@gmail.com", "admin123")
       .then((() => {
         console.log('success');
         this.props.history.push("/dashboard");
@@ -26,7 +37,7 @@ class Login extends Component {
         console.log('failed');
         this.props.history.push("/");
       });
-  };
+  }
 
   startLogout = () => {
     return () => {
@@ -52,6 +63,7 @@ class Login extends Component {
             <div className="input-field">
               <button className="btn blue lighten-1 z-depth-0" onClick={this.startLogin}>Login</button>
               <button className="btn blue lighten-1 z-depth-0" onClick={() => this.props.history.push('/signup')}>SignUp</button>
+              <button className="btn blue lighten-1 z-depth-0" onClick={this.demoLogin}>Test Login</button>
             </div>
           </form>
         </div>
