@@ -55,8 +55,7 @@ body {
   
 }
 #instructions_text{
-  /* font-family: 'Orbitron', sans-serif; */
-  /* font-family: 'Griffy', cursive; */ 
+  
   font-family: 'Denk One', sans-serif;
   position: relative;
   margin: 0 auto;
@@ -73,8 +72,7 @@ body {
 }
 
 #splash h2 { 
-  /* font-family: 'Orbitron', sans-serif; */
-  /* font-family: 'Griffy', cursive; */
+ 
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 28px;
@@ -84,8 +82,7 @@ body {
 
 #play_btn {
   position: relative;
-  /* font-family: 'Orbitron', sans-serif; */
-  /* font-family: 'Griffy', cursive; */
+ 
   font-family: 'Denk One', sans-serif;
   font-weight: lighter;
   font-size: 28px;
