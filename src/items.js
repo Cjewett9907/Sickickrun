@@ -70,7 +70,7 @@ class Item {
             }
     
         createToken(){
-                this.itemMap = new t.TextureLoader().load( "./gold_shield.jpg");
+                this.itemMap = new t.TextureLoader().load( "./fearCoin.png");
                 this.spriteMaterial = new t.SpriteMaterial( { map: this.itemMap, color: 0xffffff } );
                 let item = new t.Sprite( this.spriteMaterial );
                 item.scale.set(1, 1, 1)
